@@ -8,30 +8,31 @@
 > Projeto acadêmico de modelagem. Utilize apenas dados fictícios. Os campos e relacionamentos abaixo representam uma proposta lógica para fins didáticos.
 
 ## Convenções
-- **PK:** chave primária, identifica cada registro.
-- **FK:** chave estrangeira, referencia a chave primária de outra tabela.
-- **UNIQUE:** impede valores repetidos no campo (ou conjunto de campos).
-- Tipos como `INT`, `VARCHAR`, `DATE`, `DATETIME`, `DECIMAL` e `BOOLEAN` seguem a convenção do MySQL.
-- Nas tabelas associativas, duas ou mais colunas podem formar uma chave primária composta.
+**PK:** chave primária, identifica cada registro.
+**FK:** chave estrangeira, referencia a chave primária de outra tabela.
+**UNIQUE:** impede valores repetidos no campo (ou conjunto de campos).
+Tipos como `INT`, `VARCHAR`, `DATE`, `DATETIME`, `DECIMAL` e `BOOLEAN` seguem a convenção do MySQL.
+Nas tabelas associativas, duas ou mais colunas podem formar uma chave primária composta.
 
 ## Visão geral dos módulos
 
-- **Pacientes:** paciente, endereco, contato_paciente, responsavel_paciente, convenio
-- **Funcionários:** funcionario, medico, enfermeiro, cargo, especialidade
-- **Consultas:** agendamento, consulta, sala_consulta, consulta_sala, retorno_consulta
-- **Prontuários:** prontuario, diagnostico, prontuario_diagnostico, alergia_paciente, historico_clinico
-- **Internações:** internacao, leito, quarto, alta_hospitalar, evolucao_enfermagem
-- **Exames:** tipo_exame, solicitacao_exame, resultado_exame, laboratorio, exame_laboratorio
-- **Medicamentos:** medicamento, prescricao, item_prescricao, estoque_medicamento, movimentacao_estoque
-- **Financeiro:** fatura, pagamento, item_fatura, tabela_preco, autorizacao_convenio
-- **Estrutura:** hospital, unidade, setor, equipamento, manutencao_equipamento
-- **Administração:** usuario, perfil_acesso, permissao, usuario_perfil, perfil_permissao
+**Pacientes:** paciente, endereco, contato_paciente, responsavel_paciente, convenio
+**Funcionários:** funcionario, medico, enfermeiro, cargo, especialidade
+**Consultas:** agendamento, consulta, sala_consulta, consulta_sala, retorno_consulta
+**Prontuários:** prontuario, diagnostico, prontuario_diagnostico, alergia_paciente, historico_clinico
+**Internações:** internacao, leito, quarto, alta_hospitalar, evolucao_enfermagem
+**Exames:** tipo_exame, solicitacao_exame, resultado_exame, laboratorio, exame_laboratorio
+**Medicamentos:** medicamento, prescricao, item_prescricao, estoque_medicamento, movimentacao_estoque
+**Financeiro:** fatura, pagamento, item_fatura, tabela_preco, autorizacao_convenio
+**Estrutura:** hospital, unidade, setor, equipamento, manutencao_equipamento
+**Administração:** usuario, perfil_acesso, permissao, usuario_perfil, perfil_permissao
 
 ## Dicionário de dados e explicação das tabelas
 
 ### 1. `paciente` — Pacientes
 
-Cadastro principal e identificação do paciente.
+
+Guarda os dados principais de cada paciente, como nome, CPF e data de nascimento.
 
 | Campo | Tipo | Chave / regra |
 |---|---|---|
@@ -44,7 +45,8 @@ Cadastro principal e identificação do paciente.
 
 ### 2. `endereco` — Pacientes
 
-Endereço residencial ou de correspondência do paciente.
+
+Guarda o endereço do paciente, incluindo rua, número, bairro e cidade.
 
 | Campo | Tipo | Chave / regra |
 |---|---|---|
@@ -58,7 +60,8 @@ Endereço residencial ou de correspondência do paciente.
 
 ### 3. `contato_paciente` — Pacientes
 
-Telefones e e-mails para contato com o paciente.
+
+Registra os telefones, e-mails e outros meios de contato do paciente.
 
 | Campo | Tipo | Chave / regra |
 |---|---|---|
@@ -70,7 +73,8 @@ Telefones e e-mails para contato com o paciente.
 
 ### 4. `responsavel_paciente` — Pacientes
 
-Pessoa responsável ou contato de referência do paciente.
+
+Guarda os dados de uma pessoa responsável ou de contato do paciente.
 
 | Campo | Tipo | Chave / regra |
 |---|---|---|
@@ -82,7 +86,8 @@ Pessoa responsável ou contato de referência do paciente.
 
 ### 5. `convenio` — Pacientes
 
-Operadoras de planos de saúde aceitas pelo hospital.
+
+Registra os convênios aceitos pelo hospital e seus dados de contato.
 
 | Campo | Tipo | Chave / regra |
 |---|---|---|
@@ -94,7 +99,8 @@ Operadoras de planos de saúde aceitas pelo hospital.
 
 ### 6. `funcionario` — Funcionários
 
-Cadastro comum dos colaboradores do hospital.
+
+Guarda os dados básicos dos funcionários que trabalham no hospital.
 
 | Campo | Tipo | Chave / regra |
 |---|---|---|
@@ -107,7 +113,8 @@ Cadastro comum dos colaboradores do hospital.
 
 ### 7. `medico` — Funcionários
 
-Dados profissionais específicos dos médicos.
+
+Armazena as informações profissionais dos funcionários que são médicos.
 
 | Campo | Tipo | Chave / regra |
 |---|---|---|
@@ -118,7 +125,8 @@ Dados profissionais específicos dos médicos.
 
 ### 8. `enfermeiro` — Funcionários
 
-Dados profissionais específicos dos enfermeiros.
+
+Armazena as informações profissionais dos funcionários que são enfermeiros.
 
 | Campo | Tipo | Chave / regra |
 |---|---|---|
@@ -129,7 +137,8 @@ Dados profissionais específicos dos enfermeiros.
 
 ### 9. `cargo` — Funcionários
 
-Cargos e funções existentes na instituição.
+
+Lista os cargos e as funções existentes no hospital.
 
 | Campo | Tipo | Chave / regra |
 |---|---|---|
@@ -139,7 +148,8 @@ Cargos e funções existentes na instituição.
 
 ### 10. `especialidade` — Funcionários
 
-Especialidades médicas oferecidas.
+
+Lista as especialidades médicas oferecidas pelo hospital.
 
 | Campo | Tipo | Chave / regra |
 |---|---|---|
@@ -149,7 +159,8 @@ Especialidades médicas oferecidas.
 
 ### 11. `agendamento` — Consultas
 
-Marcações de consultas e situação de cada agendamento.
+
+Registra as consultas marcadas pelos pacientes e os dados do agendamento.
 
 | Campo | Tipo | Chave / regra |
 |---|---|---|
@@ -161,7 +172,8 @@ Marcações de consultas e situação de cada agendamento.
 
 ### 12. `consulta` — Consultas
 
-Atendimento efetivamente realizado.
+
+Guarda as informações do atendimento que foi realizado.
 
 | Campo | Tipo | Chave / regra |
 |---|---|---|
@@ -173,7 +185,8 @@ Atendimento efetivamente realizado.
 
 ### 13. `sala_consulta` — Consultas
 
-Salas físicas utilizadas para atendimento.
+
+Registra as salas usadas para realizar as consultas.
 
 | Campo | Tipo | Chave / regra |
 |---|---|---|
@@ -184,7 +197,8 @@ Salas físicas utilizadas para atendimento.
 
 ### 14. `consulta_sala` — Consultas
 
-Tabela associativa entre consultas e salas.
+
+Faz a ligação entre as consultas e as salas onde elas acontecem.
 
 | Campo | Tipo | Chave / regra |
 |---|---|---|
@@ -193,7 +207,8 @@ Tabela associativa entre consultas e salas.
 
 ### 15. `retorno_consulta` — Consultas
 
-Retornos recomendados após um atendimento.
+
+Registra quando o paciente precisa voltar para uma nova consulta.
 
 | Campo | Tipo | Chave / regra |
 |---|---|---|
@@ -204,7 +219,8 @@ Retornos recomendados após um atendimento.
 
 ### 16. `prontuario` — Prontuários
 
-Histórico clínico central do paciente.
+
+Guarda o prontuário do paciente, reunindo suas informações clínicas.
 
 | Campo | Tipo | Chave / regra |
 |---|---|---|
@@ -215,7 +231,8 @@ Histórico clínico central do paciente.
 
 ### 17. `diagnostico` — Prontuários
 
-Catálogo de diagnósticos.
+
+Lista os diagnósticos que podem ser associados aos prontuários.
 
 | Campo | Tipo | Chave / regra |
 |---|---|---|
@@ -226,7 +243,8 @@ Catálogo de diagnósticos.
 
 ### 18. `prontuario_diagnostico` — Prontuários
 
-Associa diagnósticos ao prontuário e identifica o médico responsável.
+
+Liga os diagnósticos ao prontuário e registra o médico responsável.
 
 | Campo | Tipo | Chave / regra |
 |---|---|---|
@@ -237,7 +255,8 @@ Associa diagnósticos ao prontuário e identifica o médico responsável.
 
 ### 19. `alergia_paciente` — Prontuários
 
-Alergias e reações conhecidas do paciente.
+
+Registra as alergias conhecidas do paciente e as reações que elas causam.
 
 | Campo | Tipo | Chave / regra |
 |---|---|---|
@@ -249,7 +268,8 @@ Alergias e reações conhecidas do paciente.
 
 ### 20. `historico_clinico` — Prontuários
 
-Anotações clínicas cronológicas do prontuário.
+
+Guarda as anotações feitas ao longo do acompanhamento clínico.
 
 | Campo | Tipo | Chave / regra |
 |---|---|---|
@@ -261,7 +281,8 @@ Anotações clínicas cronológicas do prontuário.
 
 ### 21. `internacao` — Internações
 
-Período de permanência do paciente no hospital.
+
+Registra a entrada, a saída e o motivo da internação do paciente.
 
 | Campo | Tipo | Chave / regra |
 |---|---|---|
@@ -274,7 +295,8 @@ Período de permanência do paciente no hospital.
 
 ### 22. `leito` — Internações
 
-Leitos e sua disponibilidade.
+
+Guarda os dados dos leitos e informa a situação de cada um.
 
 | Campo | Tipo | Chave / regra |
 |---|---|---|
@@ -285,7 +307,8 @@ Leitos e sua disponibilidade.
 
 ### 23. `quarto` — Internações
 
-Quartos que agrupam leitos dentro de um setor.
+
+Registra os quartos do hospital e o setor ao qual pertencem.
 
 | Campo | Tipo | Chave / regra |
 |---|---|---|
@@ -296,7 +319,8 @@ Quartos que agrupam leitos dentro de um setor.
 
 ### 24. `alta_hospitalar` — Internações
 
-Registro da alta e das orientações de continuidade do cuidado.
+
+Guarda as informações da alta do paciente e as orientações recebidas.
 
 | Campo | Tipo | Chave / regra |
 |---|---|---|
@@ -308,7 +332,8 @@ Registro da alta e das orientações de continuidade do cuidado.
 
 ### 25. `evolucao_enfermagem` — Internações
 
-Anotações da equipe de enfermagem durante a internação.
+
+Registra as anotações feitas pela equipe de enfermagem durante a internação.
 
 | Campo | Tipo | Chave / regra |
 |---|---|---|
@@ -320,7 +345,8 @@ Anotações da equipe de enfermagem durante a internação.
 
 ### 26. `tipo_exame` — Exames
 
-Catálogo de exames disponíveis.
+
+Lista os tipos de exames disponíveis e as informações sobre cada um.
 
 | Campo | Tipo | Chave / regra |
 |---|---|---|
@@ -331,7 +357,8 @@ Catálogo de exames disponíveis.
 
 ### 27. `solicitacao_exame` — Exames
 
-Solicitações médicas de exames.
+
+Registra os exames pedidos pelos médicos para os pacientes.
 
 | Campo | Tipo | Chave / regra |
 |---|---|---|
@@ -344,7 +371,8 @@ Solicitações médicas de exames.
 
 ### 28. `resultado_exame` — Exames
 
-Resultado e laudo produzido para uma solicitação.
+
+Guarda o resultado e o laudo de um exame solicitado.
 
 | Campo | Tipo | Chave / regra |
 |---|---|---|
@@ -356,7 +384,8 @@ Resultado e laudo produzido para uma solicitação.
 
 ### 29. `laboratorio` — Exames
 
-Unidades internas ou prestadores que realizam exames.
+
+Registra os laboratórios que realizam os exames.
 
 | Campo | Tipo | Chave / regra |
 |---|---|---|
@@ -367,7 +396,8 @@ Unidades internas ou prestadores que realizam exames.
 
 ### 30. `exame_laboratorio` — Exames
 
-Define onde e quando uma solicitação será realizada.
+
+Indica em qual laboratório e em que data o exame será realizado.
 
 | Campo | Tipo | Chave / regra |
 |---|---|---|
@@ -377,7 +407,8 @@ Define onde e quando uma solicitação será realizada.
 
 ### 31. `medicamento` — Medicamentos
 
-Catálogo de medicamentos utilizados.
+
+Lista os medicamentos utilizados pelo hospital e suas informações.
 
 | Campo | Tipo | Chave / regra |
 |---|---|---|
@@ -389,7 +420,8 @@ Catálogo de medicamentos utilizados.
 
 ### 32. `prescricao` — Medicamentos
 
-Prescrições médicas destinadas ao paciente.
+
+Registra os medicamentos prescritos pelo médico para o paciente.
 
 | Campo | Tipo | Chave / regra |
 |---|---|---|
@@ -401,7 +433,8 @@ Prescrições médicas destinadas ao paciente.
 
 ### 33. `item_prescricao` — Medicamentos
 
-Medicamentos e instruções que compõem uma prescrição.
+
+Mostra quais medicamentos fazem parte de uma prescrição e como devem ser usados.
 
 | Campo | Tipo | Chave / regra |
 |---|---|---|
@@ -414,7 +447,8 @@ Medicamentos e instruções que compõem uma prescrição.
 
 ### 34. `estoque_medicamento` — Medicamentos
 
-Quantidade disponível por lote e validade.
+
+Controla a quantidade de cada medicamento, seu lote e sua validade.
 
 | Campo | Tipo | Chave / regra |
 |---|---|---|
@@ -426,7 +460,8 @@ Quantidade disponível por lote e validade.
 
 ### 35. `movimentacao_estoque` — Medicamentos
 
-Entradas, saídas e ajustes de estoque.
+
+Registra as entradas, saídas e alterações na quantidade dos medicamentos.
 
 | Campo | Tipo | Chave / regra |
 |---|---|---|
@@ -439,7 +474,8 @@ Entradas, saídas e ajustes de estoque.
 
 ### 36. `fatura` — Financeiro
 
-Cobrança referente aos serviços prestados.
+
+Registra as cobranças dos serviços prestados ao paciente.
 
 | Campo | Tipo | Chave / regra |
 |---|---|---|
@@ -452,7 +488,8 @@ Cobrança referente aos serviços prestados.
 
 ### 37. `pagamento` — Financeiro
 
-Pagamentos realizados para quitar faturas.
+
+Guarda os pagamentos feitos para quitar uma fatura.
 
 | Campo | Tipo | Chave / regra |
 |---|---|---|
@@ -464,7 +501,8 @@ Pagamentos realizados para quitar faturas.
 
 ### 38. `item_fatura` — Financeiro
 
-Itens e valores que formam uma fatura.
+
+Lista os serviços e valores que fazem parte de uma fatura.
 
 | Campo | Tipo | Chave / regra |
 |---|---|---|
@@ -476,7 +514,8 @@ Itens e valores que formam uma fatura.
 
 ### 39. `tabela_preco` — Financeiro
 
-Valores de referência dos serviços hospitalares.
+
+Guarda os preços de referência dos serviços oferecidos pelo hospital.
 
 | Campo | Tipo | Chave / regra |
 |---|---|---|
@@ -488,7 +527,8 @@ Valores de referência dos serviços hospitalares.
 
 ### 40. `autorizacao_convenio` — Financeiro
 
-Autorizações de procedimentos solicitadas ao convênio.
+
+Registra os pedidos de autorização enviados aos convênios.
 
 | Campo | Tipo | Chave / regra |
 |---|---|---|
@@ -501,7 +541,8 @@ Autorizações de procedimentos solicitadas ao convênio.
 
 ### 41. `hospital` — Estrutura
 
-Identifica a instituição hospitalar.
+
+Guarda os dados principais da instituição hospitalar.
 
 | Campo | Tipo | Chave / regra |
 |---|---|---|
@@ -513,7 +554,8 @@ Identifica a instituição hospitalar.
 
 ### 42. `unidade` — Estrutura
 
-Unidades físicas pertencentes ao hospital.
+
+Registra as unidades que fazem parte do hospital.
 
 | Campo | Tipo | Chave / regra |
 |---|---|---|
@@ -524,7 +566,8 @@ Unidades físicas pertencentes ao hospital.
 
 ### 43. `setor` — Estrutura
 
-Setores como emergência, UTI, pediatria e recepção.
+
+Lista os setores de cada unidade, como emergência, UTI e pediatria.
 
 | Campo | Tipo | Chave / regra |
 |---|---|---|
@@ -535,7 +578,8 @@ Setores como emergência, UTI, pediatria e recepção.
 
 ### 44. `equipamento` — Estrutura
 
-Equipamentos vinculados a setores do hospital.
+
+Registra os equipamentos utilizados em cada setor do hospital.
 
 | Campo | Tipo | Chave / regra |
 |---|---|---|
@@ -547,7 +591,8 @@ Equipamentos vinculados a setores do hospital.
 
 ### 45. `manutencao_equipamento` — Estrutura
 
-Histórico de manutenção dos equipamentos.
+
+Guarda o histórico das manutenções feitas nos equipamentos.
 
 | Campo | Tipo | Chave / regra |
 |---|---|---|
@@ -559,7 +604,8 @@ Histórico de manutenção dos equipamentos.
 
 ### 46. `usuario` — Administração
 
-Conta de acesso ao sistema; armazena hash, nunca senha em texto puro.
+
+Registra as contas usadas pelos funcionários para entrar no sistema.
 
 | Campo | Tipo | Chave / regra |
 |---|---|---|
@@ -571,7 +617,8 @@ Conta de acesso ao sistema; armazena hash, nunca senha em texto puro.
 
 ### 47. `perfil_acesso` — Administração
 
-Perfis que agrupam permissões de acesso.
+
+Lista os perfis que definem o que cada usuário pode acessar.
 
 | Campo | Tipo | Chave / regra |
 |---|---|---|
@@ -581,7 +628,8 @@ Perfis que agrupam permissões de acesso.
 
 ### 48. `permissao` — Administração
 
-Ações autorizáveis no sistema.
+
+Lista as ações que podem ser permitidas dentro do sistema.
 
 | Campo | Tipo | Chave / regra |
 |---|---|---|
@@ -591,7 +639,8 @@ Ações autorizáveis no sistema.
 
 ### 49. `usuario_perfil` — Administração
 
-Associa usuários a um ou mais perfis.
+
+Faz a ligação entre os usuários e seus perfis de acesso.
 
 | Campo | Tipo | Chave / regra |
 |---|---|---|
@@ -600,7 +649,8 @@ Associa usuários a um ou mais perfis.
 
 ### 50. `perfil_permissao` — Administração
 
-Associa permissões aos perfis de acesso.
+
+Faz a ligação entre cada perfil e as permissões que ele possui.
 
 | Campo | Tipo | Chave / regra |
 |---|---|---|
@@ -609,30 +659,41 @@ Associa permissões aos perfis de acesso.
 
 ## Relacionamentos principais
 
-- `endereco` 1:N `paciente` (o modelo permite que um endereço seja referenciado por vários pacientes; se a regra do hospital for endereço exclusivo, pode-se aplicar UNIQUE em `paciente.id_endereco`).
-- `paciente` 1:N `contato_paciente`, `responsavel_paciente`, `agendamento`, `internacao`, `solicitacao_exame`, `prescricao` e `fatura`.
-- `funcionario` 1:1 `medico` ou `enfermeiro` para dados profissionais específicos; `cargo` e `setor` 1:N `funcionario`.
-- `especialidade` 1:N `medico`; `medico` 1:N `agendamento`, `prescricao` e solicitações de exame.
-- `agendamento` 0:1 `consulta`; `consulta` pode se relacionar a salas por `consulta_sala` (N:N).
-- `paciente` 1:1 `prontuario`; `prontuario` relaciona-se a diagnósticos por `prontuario_diagnostico` (N:N), além de alergias e histórico clínico.
-- `internacao` 0:1 `alta_hospitalar` e 1:N `evolucao_enfermagem`; `quarto` 1:N `leito`; `setor` 1:N `quarto` e `sala_consulta`.
-- `tipo_exame` 1:N `solicitacao_exame`; cada solicitação pode ter um resultado e é associada a um laboratório por `exame_laboratorio`.
-- `prescricao` 1:N `item_prescricao`; `medicamento` 1:N `item_prescricao` e 1:N `estoque_medicamento`; estoque registra movimentações.
-- `fatura` 1:N `item_fatura` e `pagamento`; `convenio` 1:N `fatura` e `autorizacao_convenio`.
-- `hospital` 1:N `unidade`; `unidade` 1:N `setor`; `setor` 1:N equipamentos.
-- `usuario` N:N `perfil_acesso` por `usuario_perfil`; `perfil_acesso` N:N `permissao` por `perfil_permissao`.
+`endereco` se relaciona com `paciente` em 1:N. Isso significa que um endereço pode estar ligado a vários pacientes.
+
+`paciente` se relaciona em 1:N com `contato_paciente`, `responsavel_paciente`, `agendamento`, `internacao`, `solicitacao_exame`, `prescricao` e `fatura`.
+
+`funcionario` se relaciona em 1:1 com `medico` ou `enfermeiro`, que guardam informações profissionais específicas. `cargo` e `setor` se relacionam em 1:N com `funcionario`.
+
+`especialidade` se relaciona em 1:N com `medico`. Um médico pode aparecer em vários `agendamento`, `prescricao` e `solicitacao_exame`.
+
+`agendamento` pode ter 0 ou 1 `consulta`. Uma `consulta` pode usar várias salas, e uma sala pode receber várias consultas; essa ligação é feita pela tabela `consulta_sala`.
+
+`paciente` tem um `prontuario` (1:1). O `prontuario` pode ter vários diagnósticos, ligados pela tabela `prontuario_diagnostico`, além de registros de alergias e histórico clínico.
+
+`internacao` pode ter 0 ou 1 `alta_hospitalar` e pode ter várias `evolucao_enfermagem`. Um `quarto` pode ter vários `leito`, e um `setor` pode ter vários quartos e salas de consulta.
+
+`tipo_exame` pode aparecer em várias `solicitacao_exame`. Cada solicitação pode ter um resultado e é ligada a um laboratório pela tabela `exame_laboratorio`.
+
+`prescricao` pode ter vários `item_prescricao`. Um `medicamento` pode aparecer em vários itens de prescrição e em vários registros de estoque; o estoque também registra suas movimentações.
+
+`fatura` pode ter vários `item_fatura` e vários `pagamento`. Um `convenio` pode estar ligado a várias faturas e autorizações.
+
+`hospital` pode ter várias `unidade`, e cada unidade pode ter vários `setor`. Um setor também pode ter vários equipamentos.
+
+`usuario` pode estar ligado a vários `perfil_acesso`, e um perfil pode estar ligado a vários usuários. Essa relação é feita por `usuario_perfil`. Os perfis também podem ter várias permissões, ligadas por `perfil_permissao`.
 
 ## Cuidados de integridade e segurança
-- Campos identificadores devem ser obrigatórios (`NOT NULL`) quando a regra de negócio exigir.
-- Validar CPF/CNPJ e formatos na aplicação; `CHAR(11)`/`CHAR(14)` não validam dígitos verificadores sozinhos.
-- Armazenar senhas somente como hash forte com salt (por exemplo, Argon2id ou bcrypt), nunca em texto puro.
-- Restringir acesso a dados clínicos por função e registrar acessos relevantes; dados de saúde são dados pessoais sensíveis pela LGPD.
-- Definir regras de exclusão (`RESTRICT`, `CASCADE` ou exclusão lógica) cuidadosamente para preservar histórico médico.
-- Criar índices nas FKs e em campos usados frequentemente em buscas, após avaliar consultas reais.
-- Definir `NOT NULL`, `DEFAULT`, `CHECK` e regras de unicidade conforme as regras do hospital.
+Campos identificadores devem ser obrigatórios (`NOT NULL`) quando a regra de negócio exigir.
+Validar CPF/CNPJ e formatos na aplicação; `CHAR(11)`/`CHAR(14)` não validam dígitos verificadores sozinhos.
+Armazenar senhas somente como hash forte com salt (por exemplo, Argon2id ou bcrypt), nunca em texto puro.
+Restringir acesso a dados clínicos por função e registrar acessos relevantes; dados de saúde são dados pessoais sensíveis pela LGPD.
+Definir regras de exclusão (`RESTRICT`, `CASCADE` ou exclusão lógica) cuidadosamente para preservar histórico médico.
+Criar índices nas FKs e em campos usados frequentemente em buscas, após avaliar consultas reais.
+Definir `NOT NULL`, `DEFAULT`, `CHECK` e regras de unicidade conforme as regras do hospital.
 
 ## Observações para a apresentação
-- O diagrama contém as 50 tabelas distribuídas em módulos para facilitar a leitura.
-- PK identifica unicamente cada linha; FK cria a ligação entre tabelas.
-- Tabelas associativas resolvem relacionamentos muitos-para-muitos.
-- Esta é uma proposta acadêmica simplificada, não um sistema clínico pronto para produção.
+O diagrama contém as 50 tabelas distribuídas em módulos para facilitar a leitura.
+PK identifica unicamente cada linha; FK cria a ligação entre tabelas.
+Tabelas associativas resolvem relacionamentos muitos-para-muitos.
+Esta é uma proposta acadêmica simplificada, não um sistema clínico pronto para produção.
